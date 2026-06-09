@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四级专区 | 英语学习资料库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.7;
+            padding-bottom: 50px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .back-nav {
+            padding: 20px 0;
+        }
+        .back-nav a {
+            color: #1a4fb8;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1f5ed8, #3474f0);
+            color: #fff;
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .page-header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            padding: 28px;
+            margin-bottom: 28px;
+        }
+        .card-title {
+            font-size: 22px;
+            color: #1f5ed8;
+            border-left: 6px solid #1f5ed8;
+            padding-left: 14px;
+            margin-bottom: 20px;
+        }
+        .sub-title {
+            font-size: 18px;
+            color: #444;
+            margin: 22px 0 12px;
+        }
+        .card ul {
+            margin-left: 22px;
+            margin-bottom: 15px;
+        }
+        .tips {
+            background-color: #eaf2ff;
+            border-left: 5px solid #1f5ed8;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+        }
+        .img-box {
+            width: 100%;
+            margin: 18px 0;
+            padding: 15px;
+            border: 1px dashed #b8cbf0;
+            border-radius: 8px;
+            background: #f8faff;
+            text-align: center;
+        }
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .img-desc {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* 横向滚动容器样式（和AB级保持一致） */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            margin: 18px 0;
+        }
+        /* 滚动条美化 */
+        .scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+        /* 单个图片项样式 */
+        .img-item {
+            flex: 0 0 auto;
+            width: 280px;
+            text-align: center;
+            padding: 12px;
+            border: 1px dashed #b8cbf0;
+            border-radius: 8px;
+            background: #f8faff;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .img-item:hover {
+            transform: scale(1.02);
+        }
+        .img-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+
+        /* 图片放大遮罩层 */
+        .img-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 20px;
+        }
+        .img-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html">← 返回首页</a>
+        </div>
+
+        <div class="page-header">
+            <h1>大学英语四级 CET-4 专区</h1>
+            <p>分值解析 | 高频词汇 | 阅读/翻译/作文 专项技巧</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">阅读题型分值</h2>
+            <ul>
+                <li>选词填空：10题，每题 3.55 分</li>
+                <li>段落匹配：10题，每题 7.1 分</li>
+                <li>仔细阅读：10题，每题 14.2 分（分值最高，重点拿分）</li>
+            </ul>
+        </div>
+
+        <!-- 四级高频词汇（左右滑动 + 点击放大） -->
+        <div class="card">
+            <h2 class="card-title">四级高频词汇</h2>
+            <p>真题高频词汇汇总</p>
+            <div class="scroll-container">
+                <div class="img-item" data-src="四级资料/四级词汇1.jpeg">
+                    <img src="四级资料/四级词汇1.jpeg" alt="四级高频词汇1">
+                    <div class="img-desc">四级词汇表 1</div>
+                </div>
+                <div class="img-item" data-src="四级资料/四级词汇2.png">
+                    <img src="四级资料/四级词汇2.png" alt="四级高频词汇2">
+                    <div class="img-desc">四级词汇表 2</div>
+                </div>
+                <div class="img-item" data-src="四级资料/四级词汇3.png">
+                    <img src="四级资料/四级词汇3.png" alt="四级高频词汇3">
+                    <div class="img-desc">四级词汇表 3</div>
+                </div>
+                <div class="img-item" data-src="四级资料/四级词汇4.jpeg">
+                    <img src="四级资料/四级词汇4.jpeg" alt="四级高频词汇4">
+                    <div class="img-desc">四级词汇表 4</div>
+                </div>
+                   <div class="img-item" data-src="四级资料/四级词汇5.jpeg">
+                    <img src="四级资料/四级词汇5.jpeg" alt="四级高频词汇5">
+                    <div class="img-desc">四级词汇表 5</div>
+                </div>
+                   <div class="img-item" data-src="四级资料/四级高频词汇6.png">
+                    <img src="四级资料/四级词汇6.png" alt="四级高频词汇6">
+                    <div class="img-desc">四级词汇表 6</div>
+                </div>
+                   <div class="img-item" data-src="四级资料/四级高频词汇7.jpeg">
+                    <img src="四级资料/四级词汇7.jpeg" alt="四级高频词汇7">
+                    <div class="img-desc">四级词汇表 7</div>
+                </div>
+                   <div class="img-item" data-src="四级资料/四级高频词汇8.png">
+                    <img src="四级资料/四级词汇8.png" alt="四级高频词汇8">
+                    <div class="img-desc">四级词汇表 8</div>
+                </div>
+                 <div class="img-item" data-src="四级资料/四级高频词汇9.png">
+                    <img src="四级资料/四级词汇9.png" alt="四级高频词汇9">
+                    <div class="img-desc">四级词汇表 9</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+    <h2 class="card-title">仔细阅读解题技巧</h2>
+    <ul>
+        <li>圈画题干关键词，回到原文精准定位</li>
+        <li>答案优先选择原文同义改写选项</li>
+        <li>排除包含 only / must / never 等绝对化词汇</li>
+    </ul>
+    <div class="tips">答题口诀：题干定位 → 原文找句 → 同义替换 → 锁定答案</div>
+
+    <!-- 新增：视频讲解按钮 -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href=" https://b23.tv/DHwAR0z" target="_blank" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #1f5ed8, #3474f0);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+        ">
+            🎬 点击查看 四级阅读技巧
+        </a>
+    </div>
+</div>
+
+        <!-- 翻译&作文资料（左右滑动 + 点击放大） -->
+       <div class="card">
+    <h2 class="card-title">翻译&作文专项资料</h2>
+    
+   
+            <!-- 视频讲解按钮 -->
+            <div style="margin-top: 10px;">
+                <a href=" https://b23.tv/F9ujbsb" target="_blank" style="
+                    display: inline-block;
+                    background: #3474f0;
+                    color: #fff;
+                    padding: 6px 12px;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    font-size: 13px;
+                ">
+                    🎬 四级写作 视频讲解
+                
+                </a>
+                 <a href=" https://b23.tv/7kw9iRj" target="_blank" style="
+                    display: inline-block;
+                    background: #3474f0;
+                    color: #fff;
+                    padding: 6px 12px;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    font-size: 13px;
+                ">
+                    🎬 四级翻译技巧 视频讲解
+                </a>
+            </div>
+        </div>
+       
+</div>
+
+        <footer>© 英语学习资料库</footer>
+    </div>
+
+    <!-- 图片放大遮罩层 -->
+    <div class="img-modal" id="imgModal">
+        <img src="" alt="放大图片" id="modalImg">
+    </div>
+
+    <script>
+        // 图片点击放大功能
+        const imgItems = document.querySelectorAll('.img-item');
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+
+        imgItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const imgSrc = this.getAttribute('data-src');
+                modalImg.src = imgSrc;
+                modal.style.display = 'flex';
+            });
+        });
+
+        modal.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

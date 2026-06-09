@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB级专区 | 英语学习资料库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.7;
+            padding-bottom: 50px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 返回导航 */
+        .back-nav {
+            padding: 20px 0;
+        }
+        .back-nav a {
+            color: #1a4fb8;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+        /* 头部 */
+        .page-header {
+            background: linear-gradient(135deg, #1f5ed8, #3474f0);
+            color: #fff;
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .page-header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        /* 卡片通用 */
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            padding: 28px;
+            margin-bottom: 28px;
+        }
+        .card-title {
+            font-size: 22px;
+            color: #1f5ed8;
+            border-left: 6px solid #1f5ed8;
+            padding-left: 14px;
+            margin-bottom: 20px;
+        }
+        .sub-title {
+            font-size: 18px;
+            color: #444;
+            margin: 22px 0 12px;
+        }
+        .card ul {
+            margin-left: 22px;
+            margin-bottom: 15px;
+        }
+        .tips {
+            background-color: #eaf2ff;
+            border-left: 5px solid #1f5ed8;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+        }
+        /* 原有单张图片样式 */
+        .img-box {
+            width: 100%;
+            margin: 18px 0;
+            padding: 15px;
+            border: 1px dashed #b8cbf0;
+            border-radius: 8px;
+            background: #f8faff;
+            text-align: center;
+        }
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .img-desc {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* 横向滚动图片容器样式 */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            margin: 18px 0;
+        }
+        /* 滚动条美化 */
+        .scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+        /* 单个图片项样式 */
+        .img-item {
+            flex: 0 0 auto;
+            width: 280px;
+            text-align: center;
+            padding: 12px;
+            border: 1px dashed #b8cbf0;
+            border-radius: 8px;
+            background: #f8faff;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .img-item:hover {
+            transform: scale(1.02);
+        }
+        .img-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+
+        /* 图片放大遮罩层 */
+        .img-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 20px;
+        }
+        .img-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html">← 返回首页</a>
+        </div>
+
+        <div class="page-header">
+            <h1>英语 AB级 备考专区</h1>
+            <p>高频词汇 | 考点汇总 | 答题技巧 | 写作模板</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">考试简介</h2>
+            <ul>
+                <li>考试定位：高等学校英语应用能力考试，侧重职场基础英语应用</li>
+                <li>核心题型：词汇语法、阅读理解、英汉互译、短文写作</li>
+                <li>备考重点：熟记高频词汇+套用固定句式，提分高效</li>
+            </ul>
+            <div class="tips">
+                💡 备考小贴士：AB级难度较低，优先背诵高频词汇，配合模板即可轻松通关
+            </div>
+        </div>
+
+        <!-- 7张高频词汇 左右滚动区域 -->
+        <div class="card">
+            <h2 class="card-title">AB级 高频词汇表</h2>
+            <p>以下为整理汇总的必考高频词汇</p>
+            <div class="scroll-container">
+                <div class="img-item" data-src="资料/ab高频词汇1.png">
+                    <img src="资料/ab高频词汇1.png" alt="AB级高频词汇1">
+                    <div class="img-desc">词汇表1</div>
+                </div>
+                <div class="img-item" data-src="资料/ab高频词汇2.png">
+                    <img src="资料/ab高频词汇2.png" alt="AB级高频词汇2">
+                    <div class="img-desc">词汇表2</div>
+                </div>
+                <div class="img-item" data-src="资料/ab高频词汇3.png">
+                    <img src="资料/ab高频词汇3.png" alt="AB级高频词汇3">
+                    <div class="img-desc">词汇表3</div>
+                </div>
+                <div class="img-item" data-src="资料/ab高频词汇4.png">
+                    <img src="资料/ab高频词汇4.png" alt="AB级高频词汇4">
+                    <div class="img-desc">词汇表4</div>
+                </div>
+                <div class="img-item" data-src="资料/ab高频词汇5.png">
+                    <img src="资料/ab高频词汇5.png" alt="AB级高频词汇5">
+                    <div class="img-desc">词汇表5</div>
+                </div>
+                <div class="img-item" data-src="资料/ab高频词汇6.png">
+                    <img src="资料/ab高频词汇6.png" alt="AB级高频词汇6">
+                    <div class="img-desc">词汇表6</div>
+                </div>
+                <div class="img-item" data-src="资料/ab高频词汇7.png">
+                    <img src="资料/ab高频词汇7.png" alt="AB级高频词汇7">
+                    <div class="img-desc">词汇表7</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6张写作模板 左右滚动区域 -->
+        <div class="card">
+            <h2 class="card-title">AB级 写作模板汇总</h2>
+            <p>全套写作模板图片</p>
+            <div class="scroll-container">
+                <div class="img-item" data-src="资料/写作1.png">
+                    <img src="资料/写作1.png" alt="写作模板1">
+                    <div class="img-desc">写作模板 1</div>
+                </div>
+                <div class="img-item" data-src="资料/写作2.png">
+                    <img src="资料/写作2.png" alt="写作模板2">
+                    <div class="img-desc">写作模板 2</div>
+                </div>
+                <div class="img-item" data-src="资料/写作3.png">
+                    <img src="资料/写作3.png" alt="写作模板3">
+                    <div class="img-desc">写作模板 3</div>
+                </div>
+                <div class="img-item" data-src="资料/写作4.png">
+                    <img src="资料/写作4.png" alt="写作模板4">
+                    <div class="img-desc">写作模板 4</div>
+                </div>
+                <div class="img-item" data-src="资料/写作5.png">
+                    <img src="资料/写作5.png" alt="写作模板5">
+                    <div class="img-desc">写作模板 5</div>
+                </div>
+                <div class="img-item" data-src="资料/写作6.png">
+                    <img src="资料/写作6.png" alt="写作模板6">
+                    <div class="img-desc">写作模板 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 语法填空专项练习 -->
+<div class="card">
+    <h2 class="card-title">AB级 语法填空专项</h2>
+    <p>高频考点+典型例题，左右滑动查看，点击图片放大查看题目与解析</p>
+    <div class="scroll-container">
+        <div class="img-item" data-src="资料/语法1.png">
+            <img src="资料/语法1.png" alt="语法填空1">
+            <div class="img-desc">语法填空 专项1</div>
+        </div>
+        <div class="img-item" data-src="资料/语法2.png">
+            <img src="资料/语法2.png" alt="语法填空2">
+            <div class="img-desc">语法填空 专项2</div>
+        </div>
+        <div class="img-item" data-src="资料/语法3.png">
+            <img src="资料/语法3.png" alt="语法填空3">
+            <div class="img-desc">语法填空 专项3</div>
+        </div>
+        <div class="img-item" data-src="资料/语法4.png">
+            <img src="资料/语法4.png" alt="语法填空4">
+            <div class="img-desc">语法填空 专项4</div>
+        </div>
+        <div class="img-item" data-src="资料/语法5.png">
+            <img src="资料/语法5.png" alt="语法填空5">
+            <div class="img-desc">语法填空 专项5</div>
+        </div>
+    </div>
+    <div class="tips">
+        💡 语法填空小贴士：重点关注时态、语态、非谓语动词和固定搭配，做完一定要对照解析总结考点
+    </div>
+</div>
+
+        <footer>© 英语学习资料库</footer>
+    </div>
+
+    <!-- 图片放大遮罩 -->
+    <div class="img-modal" id="imgModal">
+        <img src="" alt="放大图片" id="modalImg">
+    </div>
+
+    <script>
+        // 获取元素
+        const imgItems = document.querySelectorAll('.img-item');
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+
+        // 点击图片项 打开放大层
+        imgItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const imgSrc = this.getAttribute('data-src');
+                modalImg.src = imgSrc;
+                modal.style.display = 'flex';
+            });
+        });
+
+        // 点击遮罩任意位置 关闭放大层
+        modal.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
